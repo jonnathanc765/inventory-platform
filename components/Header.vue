@@ -11,7 +11,7 @@
       "
     >
       <a
-        href="/"
+        @click="goToHome()"
         class="
           d-flex
           align-items-center
@@ -33,3 +33,12 @@
     </header>
   </div>
 </template>
+<script>
+export default {
+  methods: {
+    goToHome() {
+      this.$router.push('/')
+    },
+  },
+}
+</script>

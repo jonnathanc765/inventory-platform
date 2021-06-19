@@ -7,15 +7,21 @@
         </b-col>
       </b-row>
       <div class="row">
-        <div class="col-md-4 col-sm-6" v-for="product of products" :key="product.id">
-          <div class="product-card">
+        <div
+          class="col-md-4 col-sm-6"
+          v-for="product of products"
+          :key="product.id"
+        >
+          <div class="product-card" @click="goToProduct(product.id)">
             <div class="badge">Disponible</div>
             <div class="product-tumb">
-              <img src="/images/generic-product.png" alt="">
+              <img src="/images/generic-product.png" alt="" />
             </div>
             <div class="product-details">
               <span class="product-catagory">Tecnología</span>
-              <h4><a href="">{{ product.name | small_truncate }}</a></h4>
+              <h4>
+                <a href="">{{ product.name | small_truncate }}</a>
+              </h4>
               <p>
                 {{ product.description | large_truncate }}
               </p>
@@ -37,8 +43,7 @@
   </div>
 </template>
 <script>
-
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
   name: 'Home',
@@ -46,34 +51,39 @@ export default {
     return {
       products: [],
       loading: false,
-    };
+    }
   },
   async mounted() {
-    this.loading = true;
+    this.loading = true
     try {
-      const { data } = await axios.get('https://inventory-django.herokuapp.com/api/inventory/products/');
+      const { data } = await axios.get(
+        'https://inventory-django.herokuapp.com/api/inventory/products/'
+      )
 
-      this.products = data.filter((product) => product.stock > 0);
+      this.products = data.filter((product) => product.stock > 0)
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-    this.loading = false;
+    this.loading = false
+  },
+  methods: {
+    goToProduct(id) {
+      this.$router.push(`/products/${id}`)
+    },
   },
   filters: {
     large_truncate(value) {
-      console.log(value);
       if (value && value.length > 70) {
-        return `${value.substr(0, 70)}...`;
+        return `${value.substr(0, 70)}...`
       }
-      return value;
+      return value
     },
     small_truncate(value) {
-      console.log(value);
       if (value && value.length > 60) {
-        return `${value.substr(0, 60)}...`;
+        return `${value.substr(0, 60)}...`
       }
-      return value;
+      return value
     },
   },
-};
+}
 </script>
