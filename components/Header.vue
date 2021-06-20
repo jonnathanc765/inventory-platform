@@ -1,37 +1,31 @@
 <template>
-  <div class="container">
-    <header
-      class="
-        d-flex
-        flex-wrap
-        justify-content-center
-        py-3
-        border-bottom
-        align-items-center
-      "
-    >
-      <a
-        @click="goToHome()"
-        class="
-          d-flex
-          align-items-center
-          mb-md-0
-          me-md-auto
-          text-dark text-decoration-none
-          margin-r-2
-        "
-      >
-        <img src="/images/logo.png" alt="" class="logo-styles" />
-        <span class="fs-4">Multiviral Tech</span>
-      </a>
-
-      <ul class="nav nav-pills">
-        <li class="nav-item">
-          <a href="#" class="nav-link active" aria-current="page">Inicio</a>
-        </li>
-      </ul>
-    </header>
-  </div>
+  <header>
+    <nav class="flex-nav">
+      <div class="container">
+        <div class="grid menu">
+          <div class="column-xs-8 column-md-6">
+            <p id="highlight">
+              <a href="#" @click="goToHome()">Multiviral Tech</a>
+            </p>
+          </div>
+          <div class="column-xs-4 column-md-6">
+            <a href="#" class="toggle-nav">
+              Menu
+              <i class="ion-navicon-round"></i>
+            </a>
+            <ul>
+              <li class="nav-item">
+                <a href="#" @click="goToHome()">Productos</a>
+              </li>
+              <!-- <li class="nav-item"><a href="#">About</a></li>
+              <li class="nav-item"><a href="#">My Account</a></li>
+              <li class="nav-item"><a href="#">Cart (0)</a></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
 </template>
 <script>
 export default {
