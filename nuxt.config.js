@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Multiviral Tech | Tienda de tecnología',
+    title: 'Tecnoviral | Tienda de tecnología',
     htmlAttrs: {
       lang: 'es',
     },
@@ -40,7 +40,9 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
-
+  router: {
+    mode: 'hash'
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 

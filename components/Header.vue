@@ -15,10 +15,12 @@
             </a>
             <ul>
               <li class="nav-item">
+                <a href="#" @click="goToHome()">Inicio</a>
+              </li>
+              <li class="nav-item">
                 <a href="#" @click="goToHome()">Productos</a>
               </li>
-              <!-- <li class="nav-item"><a href="#">About</a></li>
-              <li class="nav-item"><a href="#">My Account</a></li>
+              <!-- <li class="nav-item"><a href="#">My Account</a></li>
               <li class="nav-item"><a href="#">Cart (0)</a></li> -->
             </ul>
           </div>

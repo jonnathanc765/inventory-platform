@@ -4,9 +4,8 @@
       <div v-if="loading" class="container">
         <div class="row">
           <div class="col-md-12">
-            <div class="my-5 py-5 d-flex justofy-content-center">
-              <h4 class="text-center">Cargando...</h4>
-              <b-spinner variant="primary"></b-spinner>
+            <div class="my-5 py-5 text-center">
+              <b-spinner></b-spinner>
             </div>
           </div>
         </div>
@@ -17,7 +16,7 @@
             <nav>
               <ol class="breadcrumb-list">
                 <li class="breadcrumb-item">
-                  <a href="#">Productos</a>
+                  <a href="#" @click="goToHome()">Productos</a>
                 </li>
                 <li class="breadcrumb-item active">{{ product.name }}</li>
                 <!-- <li class="breadcrumb-item active">Bonsai</li> -->
@@ -45,11 +44,10 @@
                 </ul>
               </div>
             </div>
-            <div class="col-xs-12 col-md-5">
+            <div class="col-xs-12 col-md-5 product-info">
               <h1>{{ product.name }}</h1>
               <h2>${{ product.sell_price }}</h2>
-              <div class="description" v-html="product.description"></div>
-              <!-- <button class="add-to-cart">Add To Cart</button> -->
+              <div class="description" v-html="compiled_description"></div>
             </div>
           </div>
         </div>
@@ -81,12 +79,26 @@
 </template>
 <script>
 import axios from 'axios'
+const marked = require('marked')
 export default {
   data() {
     return {
-      loading: false,
+      loading: true,
       product: {},
     }
+  },
+  computed: {
+    compiled_description() {
+      if (this.product.description) {
+        return marked(this.product.description)
+      }
+      return ''
+    },
+  },
+  methods: {
+    goToHome() {
+      this.$router.push('/')
+    },
   },
   async mounted() {
     this.loading = true

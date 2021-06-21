@@ -3,7 +3,7 @@
     <div class="container">
       <b-row class="my-5" v-if="loading">
         <b-col cols="12" class="d-flex justify-content-center">
-          <b-spinner variant="primary"></b-spinner>
+          <b-spinner></b-spinner>
         </b-col>
       </b-row>
       <div class="row">
@@ -12,7 +12,7 @@
           v-for="product of products"
           :key="product.id"
         >
-          <div class="product-card" @click="goToProduct(product.id)">
+          <div class="product-card shadow" @click="goToProduct(product.id)">
             <div class="badge">Disponible</div>
             <div class="product-tumb">
               <img src="/images/generic-product.png" alt="" />
@@ -44,13 +44,12 @@
 </template>
 <script>
 import axios from 'axios'
-
 export default {
   name: 'Home',
   data() {
     return {
       products: [],
-      loading: false,
+      loading: true,
     }
   },
   async mounted() {
