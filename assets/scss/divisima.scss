@@ -5,8 +5,8 @@
  ------------------------------------
  ====================================*/
 
- $color: #f51167;
- $sub_color: #50e550;
+ $color: #42b983;
+ $sub_color: #35495e;
 
  /*----------------------------------------*/
  /* Template default CSS
@@ -486,7 +486,7 @@
  ---------------------*/
 
  .hero-section {
-   padding-bottom: 54px;
+  //  padding-bottom: 54px;
  }
 
  .hero-slider {
@@ -608,18 +608,18 @@
      }
    }
    .owl-nav {
-     button.owl-next,
-     button.owl-prev {
+     div.owl-next,
+     div.owl-prev {
        font-size: 27px;
        position: absolute;
        color: #fff;
        opacity: 0.5;
        bottom: -20px;
      }
-     button.owl-next {
+     div.owl-next {
        right: 0;
      }
-     button.owl-prev {
+     div.owl-prev {
        left: 0;
      }
    }
@@ -749,21 +749,29 @@
 
  .product-slider {
    .owl-nav {
+     > div {
+       background-color: transparent!important;
+     }
      position: absolute;
      top: calc(50% - 60px);
      width: 100%;
      left: 0;
-     button.owl-next,
-     button.owl-prev {
+     div.owl-next,
+     div.owl-prev {
        color: #a4a4a4;
        font-size: 42px;
        position: relative;
+       transition: all .3s ease;
+       &:hover {
+         color: #000;
+         font-size: 44px;
+       }
      }
-     button.owl-next {
+     div.owl-next {
        float: right;
        right: -92px;
      }
-     button.owl-prev {
+     div.owl-prev {
        float: left;
        left: -92px;
      }
@@ -920,7 +928,7 @@
      background: #50e550;
      line-height: 1;
      text-transform: uppercase;
-     padding: 7px 16px 1px;
+     padding: 4px 16px 3px;
      border-radius: 80px;
    }
    span {

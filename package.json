@@ -17,7 +17,9 @@
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.9.1",
     "marked": "^2.1.1",
-    "nuxt": "^2.15.3"
+    "nuxt": "^2.15.3",
+    "vue-carousel": "^0.18.0",
+    "vue-owl-carousel": "^2.0.3"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^6.0.0",
