@@ -18,7 +18,9 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '@/assets/scss/styles.scss'
+    '@/assets/css/flaticon.css',
+    '@/assets/css/font-awesome.min.css',
+    '@/assets/scss/divisima.scss',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

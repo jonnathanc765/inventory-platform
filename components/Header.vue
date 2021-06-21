@@ -2,12 +2,16 @@
   <header>
     <nav class="flex-nav">
       <div class="container">
-        <div class="grid menu">
-          <div class="column-xs-8 column-md-6">
+        <div class="row">
+          <div class="col-md-2">
             <p id="highlight">
-              <a href="#" @click="goToHome()">Multiviral Tech</a>
+              <a href="#" @click="goToHome()">Multiviral</a>
             </p>
           </div>
+          <div class="col-md-6"></div>
+          <div class="col-md-4"></div>
+        </div>
+        <div class="grid menu">
           <div class="column-xs-4 column-md-6">
             <a href="#" class="toggle-nav">
               Menu
