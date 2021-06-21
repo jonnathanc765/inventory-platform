@@ -15,7 +15,6 @@
           :smartSpeed="1200"
           :autoHeight="false"
           :autoplay="true"
-          @changed="heroInitialized"
         >
           <div id="hero-1" class="hs-item" data-setbg="#">
             <div class="container">
@@ -470,11 +469,6 @@ export default {
   methods: {
     goToProduct(id) {
       this.$router.push(`/products/${id}`)
-    },
-    heroInitialized(event) {
-      console.log('event: ', event)
-      // let a = this.items().length;
-      // $("#snh-1").html("<span>1</span><span>" + a + "</span>");
     },
   },
 }
