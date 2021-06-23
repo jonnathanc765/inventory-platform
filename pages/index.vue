@@ -98,7 +98,7 @@
         </div>
       </div>
     </section>
-    <section class="top-letest-product-section">
+    <!-- <section class="top-letest-product-section">
       <div class="container">
         <div class="section-title">
           <h2>LO MAS NUEVO</h2>
@@ -204,10 +204,10 @@
         </client-only>
         <div class="product-slider owl-carousel"></div>
       </div>
-    </section>
+    </section> -->
     <section class="product-filter-section">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title mt-5">
           <h2>DESCUBRE LOS PRODUCTOS MAS VENDIDOS</h2>
         </div>
         <!-- <ul class="product-filter-menu">
@@ -224,7 +224,7 @@
           <div class="col-lg-3 col-sm-6">
             <div class="product-item">
               <div class="pi-pic">
-                <img src="~assets/img/product/5.jpg" alt="" />
+                <img src="/images/products/1.jpg" alt="" />
                 <div class="pi-links">
                   <a href="#" class="add-card">
                     <i class="flaticon-bag"></i><span>ADD TO CART</span>
@@ -244,7 +244,7 @@
             <div class="product-item">
               <div class="pi-pic">
                 <div class="tag-sale">ON SALE</div>
-                <img src="~assets/img/product/5.jpg" alt="" />
+                <img src="/images/products/2.jpg" alt="" />
                 <div class="pi-links">
                   <a href="#" class="add-card">
                     <i class="flaticon-bag"></i><span>ADD TO CART</span>
@@ -263,7 +263,7 @@
           <div class="col-lg-3 col-sm-6">
             <div class="product-item">
               <div class="pi-pic">
-                <img src="~assets/img/product/7.jpg" alt="" />
+                <img src="/images/products/3.jpg" alt="" />
                 <div class="pi-links">
                   <a href="#" class="add-card">
                     <i class="flaticon-bag"></i><span>ADD TO CART</span>
@@ -282,7 +282,7 @@
           <div class="col-lg-3 col-sm-6">
             <div class="product-item">
               <div class="pi-pic">
-                <img src="~assets/img/product/8.jpg" alt="" />
+                <img src="/images/products/4.jpg" alt="" />
                 <div class="pi-links">
                   <a href="#" class="add-card">
                     <i class="flaticon-bag"></i><span>ADD TO CART</span>
@@ -301,7 +301,7 @@
           <div class="col-lg-3 col-sm-6">
             <div class="product-item">
               <div class="pi-pic">
-                <img src="~assets/img/product/9.jpg" alt="" />
+                <img src="/images/products/5.jpg" alt="" />
                 <div class="pi-links">
                   <a href="#" class="add-card">
                     <i class="flaticon-bag"></i><span>ADD TO CART</span>
@@ -320,7 +320,7 @@
           <div class="col-lg-3 col-sm-6">
             <div class="product-item">
               <div class="pi-pic">
-                <img src="~assets/img/product/10.jpg" alt="" />
+                <img src="/images/products/6.jpg" alt="" />
                 <div class="pi-links">
                   <a href="#" class="add-card">
                     <i class="flaticon-bag"></i><span>ADD TO CART</span>
@@ -339,7 +339,7 @@
           <div class="col-lg-3 col-sm-6">
             <div class="product-item">
               <div class="pi-pic">
-                <img src="~assets/img/product/11.jpg" alt="" />
+                <img src="/images/products/7.jpg" alt="" />
                 <div class="pi-links">
                   <a href="#" class="add-card">
                     <i class="flaticon-bag"></i><span>ADD TO CART</span>
@@ -358,7 +358,7 @@
           <div class="col-lg-3 col-sm-6">
             <div class="product-item">
               <div class="pi-pic">
-                <img src="~assets/img/product/12.jpg" alt="" />
+                <img src="/images/products/1.jpg" alt="" />
                 <div class="pi-links">
                   <a href="#" class="add-card">
                     <i class="flaticon-bag"></i><span>ADD TO CART</span>

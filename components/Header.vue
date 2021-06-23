@@ -11,7 +11,7 @@
           </div>
           <div class="col-xl-6 col-lg-5">
             <form class="header-search-form">
-              <input type="text" placeholder="Search on divisima ...." />
+              <input type="text" placeholder="Busca tus productos ...." />
               <button><i class="flaticon-search"></i></button>
             </form>
           </div>
@@ -37,7 +37,7 @@
       <div class="container">
         <ul class="main-menu">
           <li><a href="#">Inicio</a></li>
-          <li><a href="#">Catalogo</a></li>
+          <li><a href="#">Catálogo</a></li>
           <!-- <li><a href="#">Men</a></li>
           <li>
             <a href="#">
