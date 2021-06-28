@@ -6,7 +6,7 @@
           <div class="col-lg-2 text-center text-lg-left">
             <!-- logo -->
             <a href="#" class="site-logo">
-              <img src="~assets/img/logo.png" alt="" />
+              <h2>Multiviral</h2>
             </a>
           </div>
           <div class="col-xl-6 col-lg-5">

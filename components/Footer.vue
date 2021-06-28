@@ -2,7 +2,9 @@
   <section class="footer-section">
     <div class="container">
       <div class="footer-logo text-center">
-        <a href="#"><img src="~assets/img/logo-light.png" alt="" /></a>
+        <NuxtLink to="/">
+          <h2 class="text-white">Multiviral</h2>
+        </NuxtLink>
       </div>
       <div class="row">
         <div class="col-lg-3 col-sm-6">
