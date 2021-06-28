@@ -199,7 +199,7 @@
       </div>
     </section> -->
     <section class="product-filter-section">
-      <div class="container">
+      <div v-if="!loading" class="container">
         <div class="section-title mt-5">
           <h2>DESCUBRE LOS PRODUCTOS MAS VENDIDOS</h2>
         </div>
@@ -230,6 +230,9 @@
             VER MAS
           </button>
         </div>
+      </div>
+      <div v-else class="d-flex justify-content-center my-5">
+        <b-spinner></b-spinner>
       </div>
     </section>
     <section class="banner-section">
