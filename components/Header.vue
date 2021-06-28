@@ -36,8 +36,12 @@
     <nav class="main-navbar">
       <div class="container">
         <ul class="main-menu">
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Catálogo</a></li>
+          <li>
+            <NuxtLink to="/">Inicio</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/categories">Explorar</NuxtLink>
+          </li>
           <!-- <li><a href="#">Men</a></li>
           <li>
             <a href="#">

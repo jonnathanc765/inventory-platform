@@ -7,16 +7,15 @@
       <div class="row">
         <div class="col-lg-3 col-sm-6">
           <div class="footer-widget about-widget">
-            <h2>About</h2>
+            <h2>Nosotros</h2>
             <p>
-              Donec vitae purus nunc. Morbi faucibus erat sit amet congue
-              mattis. Nullam frin-gilla faucibus urna, id dapibus erat iaculis
-              ut. Integer ac sem.
+              Somos una pequeña tienda virtual con sede en Barquisimeto, que te
+              ofrece lo ultimo en tecnología
             </p>
-            <img src="~assets/img/cards.png" alt="" />
+            <!-- <img src="~assets/img/cards.png" alt="" /> -->
           </div>
         </div>
-        <div class="col-lg-3 col-sm-6">
+        <!-- <div class="col-lg-3 col-sm-6">
           <div class="footer-widget about-widget">
             <h2>Questions</h2>
             <ul>
@@ -79,7 +78,7 @@
               <p>office@youremail.com</p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="social-links-warp">
@@ -109,9 +108,7 @@
         </div>
 
         <p class="text-white text-center mt-5">
-          Copyright &copy; 2021 All rights reserved | This template is made with
-          <i class="fa fa-heart-o" aria-hidden="true"></i> by
-          <a href="https://colorlib.com" target="_blank">Colorlib</a>
+          Copyright &copy; 2021 All rights reserved | Maked by Jonnathan
         </p>
       </div>
     </div>
