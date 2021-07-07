@@ -58,5 +58,16 @@ export default {
   // For develop on local network
   server: {
     host: '0.0.0.0'
+  },
+
+  // Config for PWA
+  pwa: {
+    manifest: {
+      name: 'Multiviral Store',
+      lang: 'es',
+      start_url: '/',
+      theme_color: '#35495e'
+    },
+    name: 'MultiviralStore'
   }
 }
