@@ -151,9 +151,9 @@
               >
                 <ProductCard :product="product"></ProductCard>
               </div>
-              <div class="text-center w-100 pt-3">
+              <!-- <div class="text-center w-100 pt-3">
                 <button class="site-btn sb-line sb-dark">Cargar mas</button>
-              </div>
+              </div> -->
             </div>
             <div v-else class="d-flex justify-content-center my-5">
               <b-spinner></b-spinner>
