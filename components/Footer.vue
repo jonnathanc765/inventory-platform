@@ -86,10 +86,18 @@
     <div class="social-links-warp">
       <div class="container">
         <div class="social-links">
-          <a href="" class="instagram">
+          <a
+            href="https://www.instagram.com/multiviralstore/"
+            target="_blank"
+            class="instagram"
+          >
             <i class="fa fa-instagram"></i><span>instagram</span>
           </a>
-          <a href="" class="facebook">
+          <a
+            href="https://www.facebook.com/multiviralstore"
+            target="_blank"
+            class="facebook"
+          >
             <i class="fa fa-facebook"></i><span>facebook</span>
           </a>
           <!-- <a href="" class="google-plus">

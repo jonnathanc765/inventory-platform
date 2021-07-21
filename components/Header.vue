@@ -9,12 +9,12 @@
               <h2>Multiviral</h2>
             </a>
           </div>
-          <div class="col-xl-6 col-lg-5">
+          <!-- <div class="col-xl-6 col-lg-5">
             <form class="header-search-form">
               <input type="text" placeholder="Busca tus productos ...." />
               <button><i class="flaticon-search"></i></button>
             </form>
-          </div>
+          </div> -->
           <!-- <div class="col-xl-4 col-lg-5">
             <div class="user-panel">
               <div class="up-item">
