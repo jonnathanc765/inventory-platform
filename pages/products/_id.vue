@@ -136,7 +136,7 @@
                   </div>
                   <b-collapse id="warranty-tab" accordion="product-info">
                     <div class="panel-body">
-                      <p>El vendedor no ofrece garantia</p>
+                      <p>Este producto posee garantia</p>
                     </div>
                   </b-collapse>
                 </div>
