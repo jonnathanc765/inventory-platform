@@ -47,7 +47,7 @@ export default {
     '@nuxtjs/axios',
   ],
   router: {
-    mode: 'hash'
+    mode: 'history',
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
@@ -57,7 +57,7 @@ export default {
 
   // For develop on local network
   server: {
-    host: '0.0.0.0'
+    host: '0.0.0.0',
   },
 
   // Config for PWA
@@ -66,8 +66,8 @@ export default {
       name: 'Multiviral Store',
       lang: 'es',
       start_url: '/',
-      theme_color: '#35495e'
+      theme_color: '#35495e',
     },
-    name: 'MultiviralStore'
+    name: 'MultiviralStore',
   }
 }

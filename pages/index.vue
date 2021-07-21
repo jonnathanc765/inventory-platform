@@ -255,27 +255,14 @@ if (process.client) {
 }
 export default {
   name: 'Home',
+  components: {
+    carousel,
+  },
   data() {
     return {
       products: [],
       loading: true,
     }
-  },
-  async mounted() {
-    this.loading = true
-    try {
-      const { data } = await axios.get(
-        'https://inventory-django.herokuapp.com/api/inventory/products/'
-      )
-
-      this.products = data.filter((product) => product.stock > 0)
-    } catch (error) {
-      console.log(error)
-    }
-    this.loading = false
-  },
-  components: {
-    carousel,
   },
   computed: {
     responsive_config() {
@@ -306,6 +293,19 @@ export default {
         '<i class="flaticon-right-arrow-1"></i>',
       ]
     },
+  },
+  async mounted() {
+    this.loading = true
+    try {
+      const { data } = await axios.get(
+        'https://inventory-django.herokuapp.com/api/inventory/products/'
+      )
+
+      this.products = data.filter((product) => product.stock > 0)
+    } catch (error) {
+      alert('Error!')
+    }
+    this.loading = false
   },
   methods: {
     goToProduct(id) {

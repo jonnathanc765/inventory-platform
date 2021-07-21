@@ -3,9 +3,9 @@
     <div class="pi-pic">
       <img :src="`/images/products/${product.id}.jpg`" alt="" />
       <div class="pi-links">
-        <a href="#" class="add-card">
-          <i class="flaticon-bag"></i><span>Detalles.</span>
-        </a>
+        <NuxtLink :to="`/products/${product.id}`" class="add-card">
+          <i class="flaticon-bag"></i><span>Detalles</span>
+        </NuxtLink>
         <!-- <a href="#" class="wishlist-btn">
           <i class="flaticon-heart"></i>
         </a> -->
