@@ -134,11 +134,7 @@
                       Garantia
                     </button>
                   </div>
-                  <b-collapse
-                    id="warranty-tab"
-                    class="collapse"
-                    accordion="product-info"
-                  >
+                  <b-collapse id="warranty-tab" accordion="product-info">
                     <div class="panel-body">
                       <p>El vendedor no ofrece garantia</p>
                     </div>
