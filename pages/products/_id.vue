@@ -115,6 +115,7 @@
                   id="information-tab"
                   accordion="product-info"
                   visible
+                  appear
                 >
                   <div class="panel-body" v-html="compiled_description"></div>
                 </b-collapse>
