@@ -145,7 +145,7 @@
           <div class="col-lg-12 order-1 order-lg-2 mb-5 mb-lg-0">
             <div v-if="!loading" class="row">
               <div
-                v-for="product of products"
+                v-for="product of products.results"
                 :key="product.id"
                 class="col-lg-3 col-md-4 col-sm-6"
               >
@@ -170,7 +170,9 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      products: [],
+      products: {
+        results: [],
+      },
       loading: true,
     }
   },

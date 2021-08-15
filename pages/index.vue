@@ -260,7 +260,9 @@ export default {
   },
   data() {
     return {
-      products: [],
+      products: {
+        results: [],
+      },
       loading: true,
     }
   },
