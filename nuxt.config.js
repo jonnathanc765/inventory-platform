@@ -37,6 +37,7 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     '@nuxtjs/pwa',
+    '@nuxtjs/dotenv',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -50,7 +51,9 @@ export default {
     mode: 'history',
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: process.env.VUE_API_URL,
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
@@ -69,5 +72,5 @@ export default {
       theme_color: '#35495e',
     },
     name: 'MultiviralStore',
-  }
+  },
 }

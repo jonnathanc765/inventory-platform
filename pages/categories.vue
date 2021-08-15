@@ -143,19 +143,31 @@
           </div> -->
 
           <div class="col-lg-12 order-1 order-lg-2 mb-5 mb-lg-0">
-            <div v-if="!loading" class="row">
+            <div class="row">
+              <div class="col-md-12 mb-2">
+                Resultados: {{ paginationData.count | '0' }}
+              </div>
+            </div>
+            <div class="row">
               <div
-                v-for="product of products.results"
+                v-for="product of products"
                 :key="product.id"
                 class="col-lg-3 col-md-4 col-sm-6"
               >
                 <ProductCard :product="product"></ProductCard>
               </div>
-              <!-- <div class="text-center w-100 pt-3">
-                <button class="site-btn sb-line sb-dark">Cargar mas</button>
-              </div> -->
+              <div class="text-center w-100 pt-3">
+                <button
+                  v-if="paginationData.next"
+                  class="site-btn sb-line sb-dark"
+                  @click="load"
+                >
+                  Cargar más
+                </button>
+                <h5 v-else>Has llegado al final</h5>
+              </div>
             </div>
-            <div v-else class="d-flex justify-content-center my-5">
+            <div v-if="loading" class="d-flex justify-content-center mt-5">
               <b-spinner></b-spinner>
             </div>
           </div>
@@ -166,28 +178,39 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   data() {
     return {
-      products: {
-        results: [],
+      products: [],
+      offset: 0,
+      paginationData: {
+        next: undefined,
       },
       loading: true,
     }
   },
   async mounted() {
-    this.loading = true
-    try {
-      const { data } = await axios.get(
-        'https://inventory-django.herokuapp.com/api/inventory/products/'
-      )
-
-      this.products = data.filter((product) => product.stock > 0)
-    } catch (error) {
-      console.log(error)
-    }
-    this.loading = false
+    await this.fetchProducts()
+  },
+  methods: {
+    async load() {
+      this.offset += 12
+      await this.fetchProducts()
+    },
+    async fetchProducts() {
+      this.loading = true
+      try {
+        const data = await this.$axios.$get(
+          `/api/inventory/products/?limit=12&offset=${this.offset}`
+        )
+        this.products.push(...data.results)
+        delete data.results
+        this.paginationData = data
+      } catch (error) {
+        console.log(error)
+      }
+      this.loading = false
+    },
   },
 }
 </script>

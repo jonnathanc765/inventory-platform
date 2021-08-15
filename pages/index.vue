@@ -215,7 +215,7 @@
         </ul> -->
         <div class="row">
           <div
-            v-for="product of products"
+            v-for="product of products.results"
             :key="product.id"
             class="col-lg-3 col-sm-6"
           >
@@ -248,7 +248,6 @@
   </main>
 </template>
 <script>
-import axios from 'axios'
 let carousel
 if (process.client) {
   carousel = require('vue-owl-carousel')
@@ -299,13 +298,13 @@ export default {
   async mounted() {
     this.loading = true
     try {
-      const { data } = await axios.get(
-        'https://inventory-django.herokuapp.com/api/inventory/products/'
-      )
-
-      this.products = data.filter((product) => product.stock > 0)
+      const data = await this.$axios.$get('/api/inventory/products/?limit=8')
+      this.products = {
+        ...data,
+        results: data.results.filter((product) => product.stock > 0),
+      }
     } catch (error) {
-      alert('Error!')
+      console.log(error)
     }
     this.loading = false
   },
