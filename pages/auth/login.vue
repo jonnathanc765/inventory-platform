@@ -30,9 +30,8 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
 export default {
-  layout: 'auth',
+  layout: 'guest',
   data() {
     return {
       loading: false,
@@ -47,23 +46,17 @@ export default {
       event.preventDefault()
       this.loading = true
       try {
-        const response = await this.$axios.$post('/api/login/', this.form)
-
-        this.$axios.setToken(response.access_token, 'Token')
-
-        this.setUser(response)
-
-        window.localStorage.setItem('auth', JSON.stringify(response))
-
-        this.$router.push('/admin/products')
+        const response = await this.$auth.loginWith('local', {
+          data: this.form,
+        })
+        this.$router.push('/admin/products/')
+        console.log(response)
       } catch (error) {
         console.log(error)
       }
+
       this.loading = false
     },
-    ...mapMutations({
-      setUser: 'auth/setUser',
-    }),
   },
 }
 </script>

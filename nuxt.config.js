@@ -44,6 +44,8 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    // https://auth.nuxtjs.org/guide/setup
+    '@nuxtjs/auth-next',
   ],
   router: {
     mode: 'history',
@@ -70,5 +72,26 @@ export default {
       theme_color: '#35495e',
     },
     name: 'MultiviralStore',
+  },
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: 'token',
+          global: true,
+          required: true,
+          type: 'Token',
+        },
+        user: {
+          property: 'user',
+          autoFetch: true,
+        },
+        endpoints: {
+          login: { url: '/api/login/', method: 'post' },
+          logout: { url: '/api/logout/', method: 'get' },
+          user: { url: '/api/me/', method: 'get' },
+        },
+      }
+    },
   },
 }
