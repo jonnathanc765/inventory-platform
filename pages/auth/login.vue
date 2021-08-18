@@ -52,6 +52,10 @@ export default {
         this.$axios.setToken(response.access_token, 'Token')
 
         this.setUser(response)
+
+        window.localStorage.setItem('auth', JSON.stringify(response))
+
+        this.$router.push('/admin/products')
       } catch (error) {
         console.log(error)
       }
