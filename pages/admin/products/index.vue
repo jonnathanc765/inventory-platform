@@ -1,6 +1,9 @@
 <template>
   <div>
     <h4 class="my-3">Lista de productos</h4>
+    <div class="form-group">
+      <b-input v-model="keyword" />
+    </div>
     <table class="table">
       <thead>
         <th>#</th>
@@ -16,7 +19,12 @@
           <td>$ {{ product.cost_price }}</td>
           <td>$ {{ product.sell_price }}</td>
           <td>
-            <b-button>Editar</b-button>
+            <NuxtLink
+              class="btn btn-primary"
+              :to="`/admin/products/${product.id}`"
+            >
+              Editar
+            </NuxtLink>
           </td>
         </tr>
       </tbody>
@@ -30,9 +38,11 @@
 <script>
 export default {
   layout: 'admin',
+  middleware: 'auth',
   data() {
     return {
       loading: false,
+      keyword: '',
       products: [],
       offset: 0,
       paginationData: {
@@ -40,15 +50,29 @@ export default {
       },
     }
   },
+  watch: {
+    keyword(_, __) {
+      this.loading = true
+      window.clearTimeout()
+
+      setTimeout(() => {
+        this.fetch(true)
+      }, 500)
+    },
+  },
   async mounted() {
-    await this.fetchProducts()
+    await this.fetch()
   },
   methods: {
-    async fetchProducts() {
+    async fetch(reset = false) {
+      if (reset) {
+        this.offset = 0
+        this.products = []
+      }
       this.loading = true
       try {
         const data = await this.$axios.$get(
-          `/api/inventory/products/?limit=12&offset=${this.offset}`
+          `/api/inventory/products/?limit=12&offset=${this.offset}&keyword=${this.keyword}`
         )
         this.products.push(...data.results)
         delete data.results

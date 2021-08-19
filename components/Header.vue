@@ -9,27 +9,29 @@
               <h2>Multiviral</h2>
             </a>
           </div>
-          <!-- <div class="col-xl-6 col-lg-5">
+          <div class="col-xl-6 col-lg-5">
             <form class="header-search-form">
               <input type="text" placeholder="Busca tus productos ...." />
               <button><i class="flaticon-search"></i></button>
             </form>
-          </div> -->
-          <!-- <div class="col-xl-4 col-lg-5">
+          </div>
+          <div class="col-xl-4 col-lg-5 d-flex align-items-center">
             <div class="user-panel">
               <div class="up-item">
                 <i class="flaticon-profile"></i>
-                <a href="#">Sign</a> In or <a href="#">Create Account</a>
+                <!-- <a href="#"></a> -->
+                <NuxtLink to="/auth/login">Sign In</NuxtLink>
+                <!-- or <a href="#">Create Account</a> -->
               </div>
-              <div class="up-item">
+              <!-- <div class="up-item">
                 <div class="shopping-card">
                   <i class="flaticon-bag"></i>
                   <span>0</span>
                 </div>
                 <a href="#">Shopping Cart</a>
-              </div>
+              </div> -->
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
     </div>

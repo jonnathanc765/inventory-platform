@@ -1,6 +1,6 @@
 <template>
   <section>
-    <form @submit="onSubmit">
+    <form v-if="!loading" @submit="onSubmit">
       <div class="form-group">
         <label for="username">Nombre de usuario</label>
         <input
@@ -21,11 +21,17 @@
           name="password"
         />
       </div>
-      <b-button type="submit" :disabled="loading">
+      <b-button type="submit" variant="primary" :disabled="loading">
         <b-spinner v-if="loading" small></b-spinner>
         <span v-else>Entrar</span>
       </b-button>
+      <NuxtLink to="/" class="btn btn-secondary">Volver</NuxtLink>
     </form>
+    <div v-else class="row">
+      <div class="col-md-12 d-flex justify-content-center">
+        <b-spinner class="my-5"></b-spinner>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -34,23 +40,27 @@ export default {
   layout: 'guest',
   data() {
     return {
-      loading: false,
+      loading: true,
       form: {
         username: 'root',
         password: 'jonnas.25',
       },
     }
   },
+  mounted() {
+    if (this.$auth.loggedIn) {
+      this.$router.push('/admin/products')
+    }
+    this.loading = false
+  },
   methods: {
     async onSubmit(event) {
       event.preventDefault()
       this.loading = true
       try {
-        const response = await this.$auth.loginWith('local', {
+        await this.$auth.loginWith('local', {
           data: this.form,
         })
-        this.$router.push('/admin/products/')
-        console.log(response)
       } catch (error) {
         console.log(error)
       }

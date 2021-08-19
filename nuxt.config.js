@@ -1,3 +1,5 @@
+import webpack from 'webpack'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -74,16 +76,20 @@ export default {
     name: 'MultiviralStore',
   },
   auth: {
+    redirect: {
+      login: '/auth/login',
+      home: '/admin/products',
+    },
     strategies: {
       local: {
         token: {
-          property: 'token',
+          property: 'access_token',
           global: true,
           required: true,
           type: 'Token',
         },
         user: {
-          property: 'user',
+          property: false,
           autoFetch: true,
         },
         endpoints: {
