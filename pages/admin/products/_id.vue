@@ -85,8 +85,8 @@ export default {
     async onSubmit() {
       this.loading = true
       try {
-        await this.$axios.$post(
-          `/api/inventory/products/${this.$route.params.id}`,
+        await this.$axios.$put(
+          `/api/inventory/products/${this.$route.params.id}/`,
           this.product
         )
         this.$router.push('/admin/products')

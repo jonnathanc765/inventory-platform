@@ -6,7 +6,7 @@
     </div>
     <table class="table">
       <thead>
-        <th>#</th>
+        <th>SKU</th>
         <th>Nombre</th>
         <th>Precio Costo</th>
         <th>Precio venta</th>
@@ -14,7 +14,7 @@
       </thead>
       <tbody>
         <tr v-for="product of products" :key="product.id">
-          <td>{{ product.id }}</td>
+          <td>{{ product.sku }}</td>
           <td>{{ product.name }}</td>
           <td>$ {{ product.cost_price }}</td>
           <td>$ {{ product.sell_price }}</td>
@@ -41,6 +41,7 @@ export default {
   middleware: 'auth',
   data() {
     return {
+      time: undefined,
       loading: false,
       keyword: '',
       products: [],
@@ -53,9 +54,8 @@ export default {
   watch: {
     keyword(_, __) {
       this.loading = true
-      window.clearTimeout()
-
-      setTimeout(() => {
+      clearTimeout(this.time)
+      this.time = setTimeout(() => {
         this.fetch(true)
       }, 500)
     },
