@@ -2,7 +2,7 @@
   <section>
     <div class="row justify-content-center mt-5">
       <div class="col-md-5">
-        <h3 class="my-2">Registrar nuevo producto</h3>
+        <h3 class="my-2">Actualizar producto</h3>
         <form @submit.prevent="onSubmit">
           <div class="form-group">
             <label for="sku">SKU</label>
@@ -43,17 +43,35 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="description">Descripción</label>
+            <label for="name">Stock</label>
             <input
+              id="stock"
+              v-model="$v.product.stock.$model"
+              type="number"
+              class="form-control"
+              :class="{ 'is-invalid': $v.product.stock.$error || errors.stock }"
+            />
+            <small class="text-muted">
+              Puede dejar el stock vacio, y por defecto sera colocado como "0"
+            </small>
+            <div v-if="!$v.product.stock.integer" class="invalid-feedback">
+              El stock debe ser un numero entero
+            </div>
+            <div v-if="errors.stock" class="invalid-feedback">
+              {{ errors.stock[0] }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="description">Descripción</label>
+            <textarea
               id="description"
               v-model="$v.product.description.$model"
-              type="text"
               class="form-control"
               :class="{
                 'is-invalid':
                   $v.product.description.$error || errors.description,
               }"
-            />
+            ></textarea>
             <div
               v-if="!$v.product.description.maxLength"
               class="invalid-feedback"

@@ -1,6 +1,13 @@
 <template>
   <div>
-    <h4 class="my-3">Lista de productos</h4>
+    <div
+      class="d-flex justify-content-between flex-row align-items-center my-2"
+    >
+      <h4 class="my-3">Lista de productos</h4>
+      <NuxtLink to="/admin/products/create" class="btn btn-success">
+        Nuevo producto
+      </NuxtLink>
+    </div>
     <div class="form-group">
       <b-input v-model="keyword" />
     </div>
@@ -25,6 +32,7 @@
             >
               Editar
             </NuxtLink>
+            <b-button variant="danger">Borrar</b-button>
           </td>
         </tr>
       </tbody>
