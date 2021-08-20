@@ -1,3 +1,5 @@
+import webpack from 'webpack'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -25,9 +27,7 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    '@/plugins/filters.js'
-  ],
+  plugins: ['@/plugins/filters.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -46,6 +46,8 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    // https://auth.nuxtjs.org/guide/setup
+    '@nuxtjs/auth-next',
   ],
   router: {
     mode: 'history',
@@ -72,5 +74,30 @@ export default {
       theme_color: '#35495e',
     },
     name: 'MultiviralStore',
+  },
+  auth: {
+    redirect: {
+      login: '/auth/login',
+      home: '/admin/products',
+    },
+    strategies: {
+      local: {
+        token: {
+          property: 'access_token',
+          global: true,
+          required: true,
+          type: 'Token',
+        },
+        user: {
+          property: false,
+          autoFetch: true,
+        },
+        endpoints: {
+          login: { url: '/api/login/', method: 'post' },
+          logout: { url: '/api/logout/', method: 'get' },
+          user: { url: '/api/me/', method: 'get' },
+        },
+      }
+    },
   },
 }

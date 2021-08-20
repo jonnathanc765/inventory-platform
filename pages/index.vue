@@ -225,7 +225,7 @@
         <div class="text-center pt-5">
           <button
             class="site-btn sb-line sb-dark"
-            @click="$router.push('/categories')"
+            @click="$router.push('/articles')"
           >
             VER MAS
           </button>

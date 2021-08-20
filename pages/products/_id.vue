@@ -55,7 +55,7 @@
               </div>
             </div>
             <div class="col-lg-6 product-details">
-              <h2 class="p-title">{{ product.name }}</h2>
+              <h1 class="p-title">{{ product.name }}</h1>
               <h3 class="p-price">$ {{ product.sell_price }}</h3>
               <h4 class="p-stock">
                 Available:
