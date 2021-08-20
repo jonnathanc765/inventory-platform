@@ -1,6 +1,9 @@
 <template>
   <div class="product-item">
-    <div class="pi-pic">
+    <div
+      class="pi-pic cursor-pointer"
+      @click="$router.push(`/products/${product.id}`)"
+    >
       <img :src="`/images/products/${product.id}.jpg`" alt="" />
       <div class="pi-links">
         <NuxtLink :to="`/products/${product.id}`" class="add-card">
@@ -27,3 +30,8 @@ export default {
   },
 }
 </script>
+<style lang="scss" scoped>
+.cursor-pointer {
+  cursor: pointer;
+}
+</style>
