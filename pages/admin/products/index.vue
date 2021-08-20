@@ -13,16 +13,24 @@
     </div>
     <table class="table">
       <thead>
-        <th>SKU</th>
-        <th>Nombre</th>
-        <th>Precio Costo</th>
-        <th>Precio venta</th>
-        <th></th>
+        <tr>
+          <th>SKU</th>
+          <th>Nombre</th>
+          <th>Precio Costo</th>
+          <th>Precio venta</th>
+          <th></th>
+        </tr>
       </thead>
       <tbody>
         <tr v-for="product of products" :key="product.id">
-          <td>{{ product.sku }}</td>
-          <td>{{ product.name }}</td>
+          <th>{{ product.sku }}</th>
+          <td class="d-flex flex-row align-items-center">
+            <img
+              :src="`/images/products/${product.id}.jpg`"
+              class="rounded mx-2 d-block table-thumbnail"
+            />
+            <span>{{ product.name }}</span>
+          </td>
           <td>$ {{ product.cost_price }}</td>
           <td>$ {{ product.sell_price }}</td>
           <td>
@@ -32,7 +40,13 @@
             >
               Editar
             </NuxtLink>
-            <b-button variant="danger">Borrar</b-button>
+            <b-button variant="danger" @click="destroy(product.id)">
+              <b-spinner
+                v-if="destroying && selected == product.id"
+                small
+              ></b-spinner>
+              <span v-else>Borrar</span>
+            </b-button>
           </td>
         </tr>
       </tbody>
@@ -49,6 +63,8 @@ export default {
   middleware: 'auth',
   data() {
     return {
+      selected: '',
+      destroying: false,
       time: undefined,
       loading: false,
       keyword: '',
@@ -72,6 +88,25 @@ export default {
     await this.fetch()
   },
   methods: {
+    async destroy(productId) {
+      const result = confirm('Esta seguro que desea continuar?')
+
+      if (result) {
+        this.selected = productId
+        this.destroying = true
+
+        try {
+          await this.$axios.$delete(`/api/inventory/products/${productId}/`)
+          this.products = this.products.filter(
+            (product) => product.id !== parseInt(productId)
+          )
+        } catch (error) {
+          alert('Ha ocurrido un error')
+        }
+        this.destroying = false
+        this.selected = undefined
+      }
+    },
     async fetch(reset = false) {
       if (reset) {
         this.offset = 0
@@ -93,3 +128,11 @@ export default {
   },
 }
 </script>
+<style lang="scss" scoped>
+.table-thumbnail {
+  max-width: 50px;
+}
+.table td {
+  vertical-align: middle;
+}
+</style>

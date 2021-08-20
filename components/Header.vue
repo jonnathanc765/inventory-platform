@@ -42,7 +42,7 @@
             <NuxtLink to="/">Inicio</NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/categories">Explorar</NuxtLink>
+            <NuxtLink to="/articles">Explorar</NuxtLink>
           </li>
           <!-- <li><a href="#">Men</a></li>
           <li>

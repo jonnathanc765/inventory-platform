@@ -42,12 +42,18 @@ export default {
     return {
       loading: true,
       form: {
-        username: 'root',
-        password: 'jonnas.25',
+        username: '',
+        password: '',
       },
     }
   },
   mounted() {
+    if (process.env.NODE_ENV === 'development') {
+      this.form = {
+        username: 'root',
+        password: 'jonnas.25',
+      }
+    }
     if (this.$auth.loggedIn) {
       this.$router.push('/admin/products')
     }

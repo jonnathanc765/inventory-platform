@@ -156,15 +156,20 @@
               >
                 <ProductCard :product="product"></ProductCard>
               </div>
-              <div class="text-center w-100 pt-3">
-                <button
-                  v-if="paginationData.next"
-                  class="site-btn sb-line sb-dark"
-                  @click="load"
-                >
-                  Cargar más
-                </button>
-                <h5 v-else>Has llegado al final</h5>
+              <div class="col-md-12">
+                <div v-if="products.length > 0" class="text-center w-100 pt-3">
+                  <button
+                    v-if="paginationData.next"
+                    class="site-btn sb-line sb-dark"
+                    @click="load"
+                  >
+                    Cargar más
+                  </button>
+                  <h5 v-else>Has llegado al final</h5>
+                </div>
+                <div v-else class="text-center">
+                  <h4>No se ha encontrado productos</h4>
+                </div>
               </div>
             </div>
             <div v-if="loading" class="d-flex justify-content-center mt-5">
@@ -189,19 +194,23 @@ export default {
       loading: true,
     }
   },
-  async mounted() {
-    await this.fetchProducts()
+  async created() {
+    let params = ''
+    if (this.$route.params.user_id) {
+      params += 'user=' + this.$route.params.user_id
+    }
+    await this.fetchProducts(params)
   },
   methods: {
     async load() {
       this.offset += 12
       await this.fetchProducts()
     },
-    async fetchProducts() {
+    async fetchProducts(additionalParams = '') {
       this.loading = true
       try {
         const data = await this.$axios.$get(
-          `/api/inventory/products/?limit=12&offset=${this.offset}`
+          `/api/inventory/products/?limit=12&offset=${this.offset}&${additionalParams}`
         )
         this.products.push(...data.results)
         delete data.results
