@@ -298,7 +298,9 @@ export default {
   async mounted() {
     this.loading = true
     try {
-      const data = await this.$axios.$get('/api/inventory/products/?limit=8')
+      const data = await this.$axios.$get(
+        '/api/inventory/products/?limit=8user=1'
+      )
       this.products = {
         ...data,
         results: data.results.filter((product) => product.stock > 0),
