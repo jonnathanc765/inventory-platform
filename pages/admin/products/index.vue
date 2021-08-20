@@ -112,10 +112,11 @@ export default {
         this.offset = 0
         this.products = []
       }
+      const user = this.$auth.user
       this.loading = true
       try {
         const data = await this.$axios.$get(
-          `/api/inventory/products/?limit=12&offset=${this.offset}&keyword=${this.keyword}`
+          `/api/inventory/products/?limit=12&offset=${this.offset}&keyword=${this.keyword}&user=${user.id}`
         )
         this.products.push(...data.results)
         delete data.results
