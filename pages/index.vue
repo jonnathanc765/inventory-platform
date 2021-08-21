@@ -299,7 +299,7 @@ export default {
     this.loading = true
     try {
       const data = await this.$axios.$get(
-        '/api/inventory/products/?limit=8user=1'
+        `/api/inventory/products/?user=1&limit=8`
       )
       this.products = {
         ...data,

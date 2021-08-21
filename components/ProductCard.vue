@@ -4,7 +4,7 @@
       class="pi-pic cursor-pointer"
       @click="$router.push(`/products/${product.id}`)"
     >
-      <img :src="`/images/products/${product.id}.jpg`" alt="" />
+      <img :src="`/images/products/${product.sku}.jpg`" alt="" />
       <div class="pi-links">
         <NuxtLink :to="`/products/${product.id}`" class="add-card">
           <i class="flaticon-bag"></i><span>Detalles</span>
@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="pi-text">
-      <h6>${{ product.sell_price }}</h6>
+      <h6 v-if="product.sell_price">${{ product.sell_price }}</h6>
       <p>{{ product.name | small_truncate }}</p>
     </div>
   </div>

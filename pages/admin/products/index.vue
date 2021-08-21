@@ -26,7 +26,7 @@
           <th>{{ product.sku }}</th>
           <td class="d-flex flex-row align-items-center">
             <img
-              :src="`/images/products/${product.id}.jpg`"
+              :src="`/images/products/${product.sku}.jpg`"
               class="rounded mx-2 d-block table-thumbnail"
             />
             <span>{{ product.name }}</span>
