@@ -5,9 +5,9 @@
         <div class="row">
           <div class="col-lg-2 text-center text-lg-left">
             <!-- logo -->
-            <a href="#" class="site-logo">
+            <NuxtLink to="/" class="site-logo">
               <h2>Multiviral</h2>
-            </a>
+            </NuxtLink>
           </div>
           <div class="col-xl-6 col-lg-5">
             <form class="header-search-form">
