@@ -50,7 +50,7 @@ export default {
     '@nuxtjs/auth-next',
   ],
   router: {
-    mode: 'history',
+    mode: 'hash',
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
