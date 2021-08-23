@@ -144,7 +144,7 @@
 
           <div class="col-lg-12 order-1 order-lg-2 mb-5 mb-lg-0">
             <div class="row">
-              <div class="col-md-12 mb-2">
+              <div v-if="!loading" class="col-md-12 mb-2">
                 Resultados: {{ paginationData.count | '0' }}
               </div>
             </div>
@@ -167,7 +167,10 @@
                   </button>
                   <h5 v-else>Has llegado al final</h5>
                 </div>
-                <div v-else class="text-center">
+                <div
+                  v-if="products.length == 0 && !loading"
+                  class="text-center"
+                >
                   <h4>No se ha encontrado productos</h4>
                 </div>
               </div>
