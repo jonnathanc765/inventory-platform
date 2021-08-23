@@ -85,7 +85,7 @@
               <div class="feature-icon">
                 <img src="~assets/img/icons/3.png" alt="#" />
               </div>
-              <h2>Envios rápidos & gratis</h2>
+              <h2>Envios rápidos</h2>
             </div>
           </div>
         </div>
