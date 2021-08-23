@@ -161,8 +161,10 @@
                   <button
                     v-if="paginationData.next"
                     class="site-btn sb-line sb-dark"
+                    :disabled="loading"
                     @click="load"
                   >
+                    <b-spinner v-if="loading" small></b-spinner>
                     Cargar más
                   </button>
                   <h5 v-else>Has llegado al final</h5>
