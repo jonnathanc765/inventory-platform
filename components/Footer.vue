@@ -11,8 +11,8 @@
           <div class="footer-widget about-widget">
             <h2>Nosotros</h2>
             <p>
-              Somos una pequeña tienda virtual con sede en Barquisimeto, que te
-              ofrece lo ultimo en tecnología
+              Somos una tienda virtual con sede en Barquisimeto, que te ofrece
+              lo ultimo en tecnología
             </p>
             <!-- <img src="~assets/img/cards.png" alt="" /> -->
           </div>
