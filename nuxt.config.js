@@ -49,9 +49,7 @@ export default {
     // https://auth.nuxtjs.org/guide/setup
     '@nuxtjs/auth-next',
   ],
-  router: {
-    mode: 'hash',
-  },
+  router: {},
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: process.env.VUE_API_URL,
