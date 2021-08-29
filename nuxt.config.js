@@ -1,5 +1,3 @@
-import webpack from 'webpack'
-
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -50,6 +48,9 @@ export default {
     '@nuxtjs/auth-next',
   ],
   router: {},
+  generate: {
+    routes: ['/articles/3'],
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: process.env.VUE_API_URL,
