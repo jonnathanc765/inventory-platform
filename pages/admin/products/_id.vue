@@ -1,7 +1,17 @@
 <template>
   <section>
-    <div class="row justify-content-center mt-5">
-      <div class="col-md-5">
+    <div v-if="loading" class="row">
+      <div class="col-md-12 py-5 text-center">
+        <b-spinner></b-spinner>
+      </div>
+    </div>
+    <div v-else class="row my-5">
+      <div class="col-md-9 border border-secondary">
+        <h4 class="mt-4">Previsualización del producto</h4>
+        <hr />
+        <SingleProductTemplate :product="product" />
+      </div>
+      <div class="col-md-3">
         <h3 class="my-2">Actualizar producto</h3>
         <form @submit.prevent="onSubmit">
           <div class="form-group">
@@ -157,18 +167,18 @@ export default {
         description: '',
       },
       errors: {},
-      loading: false,
+      loading: true,
     }
   },
   async created() {
     const { id } = this.$route.params
-    this.loading = true
     try {
       const response = await this.$axios.$get(`/api/inventory/products/${id}/`)
       this.product = response
     } catch (error) {
       console.log(error)
     }
+    this.loading = false
   },
   methods: {
     async onSubmit() {
