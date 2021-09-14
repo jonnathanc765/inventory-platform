@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="row mt-5">
+    <div class="row my-5">
       <div class="col-md-9 border border-secondary">
         <h4 class="mt-4">Previsualización del producto</h4>
         <hr />

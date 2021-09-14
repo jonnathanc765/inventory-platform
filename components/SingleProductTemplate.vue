@@ -222,12 +222,18 @@ export default {
       immediate: true,
       deep: true,
       handler(_, newValue) {
+        // console.log(newValue)
         if (newValue && newValue.sku && newValue.sku !== this.currentSku) {
-          this.imageExistsChecker()
           this.currentSku = newValue.sku
+          if (newValue.sku) {
+            this.imageExistsChecker()
+          }
         }
       },
     },
+  },
+  created() {
+    this.imageExistsChecker()
   },
   methods: {
     imageExistsChecker() {
