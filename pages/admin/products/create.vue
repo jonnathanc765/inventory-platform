@@ -1,7 +1,12 @@
 <template>
   <section>
-    <div class="row justify-content-center mt-5">
-      <div class="col-md-6">
+    <div class="row mt-5">
+      <div class="col-md-9 border border-secondary">
+        <h4 class="mt-4">Previsualización del producto</h4>
+        <hr />
+        <SingleProductTemplate :product="product" />
+      </div>
+      <div class="col-md-3">
         <h3 class="my-2">Registrar nuevo producto</h3>
         <form @submit.prevent="onSubmit">
           <div class="form-group">
