@@ -7,7 +7,18 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="product-pic-zoom">
-            <img class="product-big-img" :src="genericProductImage" alt="" />
+            <img
+              v-if="mainImageNotFound"
+              class="product-big-img"
+              :src="genericProductImage"
+              alt=""
+            />
+            <img
+              v-else
+              class="product-big-img"
+              :src="mainImage"
+              :alt="product.name"
+            />
           </div>
           <div
             class="product-thumbs"
@@ -154,6 +165,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 const marked = require('marked')
 
 export default {
@@ -167,7 +179,7 @@ export default {
   data() {
     return {
       images: [{ url: false }, { url: false }, { url: false }, { url: false }],
-      mainImageNotFound: false,
+      mainImageNotFound: true,
     }
   },
   computed: {
@@ -211,10 +223,33 @@ export default {
       deep: true,
       handler(_, newValue) {
         if (newValue && newValue.sku && newValue.sku !== this.currentSku) {
-          console.log(newValue.sku)
+          this.imageExistsChecker()
           this.currentSku = newValue.sku
         }
       },
+    },
+  },
+  methods: {
+    imageExistsChecker() {
+      this.images.forEach(async (_, index) => {
+        try {
+          let key = `-${index + 1}`
+          if (index === 0) {
+            key = ''
+          }
+          const imageKey = `${this.product.sku}${key}.jpg`
+          await axios.get(`/images/products/${imageKey}`)
+          if (index === 0) {
+            this.mainImageNotFound = false
+          }
+          this.images[index].url = `/images/products/${imageKey}`
+        } catch (error) {
+          this.images[index].url = false
+          if (index === 0) {
+            this.mainImageNotFound = true
+          }
+        }
+      })
     },
   },
 }
